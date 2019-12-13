@@ -9,10 +9,10 @@ public class SortAndStar {
         final char[] chars = first.toCharArray();
         String[] word = new String[first.length()];
 
-        for(int i = 0; i< chars.length; i++){
+        for (int i = 0; i < chars.length; i++) {
             word[i] = Character.toString(chars[i]);
         }
 
-        return  String.join("***", word);
+        return String.join("***", word);
     }
 }

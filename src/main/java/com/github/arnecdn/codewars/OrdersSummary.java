@@ -15,13 +15,13 @@ public class OrdersSummary {
 
         for (int i = 0; i < orders.length; i++) {
             String order = orders[i].trim();
-            if(order.isEmpty()){
+            if (order.isEmpty()) {
                 break;
             }
 
             final Matcher matcher = fieldValidator.matcher(order);
 
-            if(! matcher.matches()){
+            if (!matcher.matches()) {
                 feilmelding.add(order);
                 continue;
             }
@@ -44,7 +44,7 @@ public class OrdersSummary {
             }
         }
 
-        String msg = feilmelding.size() > 0 ? String.format("; Badly formed %d: %s ;", feilmelding.size(),  String.join(" ;",feilmelding)) : "";
+        String msg = feilmelding.size() > 0 ? String.format("; Badly formed %d: %s ;", feilmelding.size(), String.join(" ;", feilmelding)) : "";
         return String.format("Buy: %d Sell: %d%s", Math.round(kjoepSum), Math.round(salgSum), msg);
     }
 }
