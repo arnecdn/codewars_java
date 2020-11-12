@@ -7,7 +7,9 @@ public class Dinglemouse {
     public static final String RAT_GOING_LEFT = "O~";
 
     public static int countDeafRats(final String s) {
-
+        if(s==null){
+            return 0;
+        }
         final String wholeQueue = s.replaceAll("(\\s)|(\\n)|(\\r)", "");
         int countDef = 0;
 
