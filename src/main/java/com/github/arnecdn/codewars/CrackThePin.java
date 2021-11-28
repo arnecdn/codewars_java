@@ -15,7 +15,7 @@ public class CrackThePin {
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] bytesOfHash = byteOf(hash);
             for (int i = 1; i <= 5; i++) {
-                String pin = tryPin("", digits, 0, i, md, bytesOfHash);
+                String pin = tryPin("", digits, i, md, bytesOfHash);
 
                 if(!pin.isEmpty()) {
                     return pin;
@@ -27,13 +27,13 @@ public class CrackThePin {
         }
     }
 
-    private String tryPin(final String generated, String digits, final int pos, final int length, MessageDigest md, final byte[] bytesOfHash) {
+    private String tryPin(final String generated, String digits, final int length, MessageDigest md, final byte[] bytesOfHash) {
         if(length == 0){
             return generated;
         }
 
         for(int i = 0; i < digits.length(); i++){
-            String pin = tryPin(generated  + digits.charAt(i) , digits.substring(0, i) + digits.substring(i), i, length-1, md, bytesOfHash);
+            String pin = tryPin(generated  + digits.charAt(i) , digits.substring(0, i) + digits.substring(i),  length-1, md, bytesOfHash);
 
             byte[] bytesOfPin = md.digest(pin.getBytes());
 
